@@ -11,7 +11,7 @@ pipeline {
          }
           stage('Upload to AWS') {
               steps {
-                  withAWS(region:'us-west-2',credentials:'selmensh_p') {
+                  withAWS(region:'us-east-1',credentials:'selmensh_p') {
                   bat 'echo "Uploading content with AWS creds"'
                       s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'selmensh')
                   }
