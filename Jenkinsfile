@@ -8,6 +8,13 @@ pipeline {
                      echo "Multiline shell steps works too"
                      ls -lah
                  '''
+             },
+              stage('Lint HTML') {
+             steps {
+                 sh '''
+                     echo "Running LInt"
+                     tidy -q -e *.html
+                 '''
              }
          }
      }
