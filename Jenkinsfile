@@ -9,7 +9,7 @@ pipeline {
                      ls -lah
                  '''
              }
-              stage('Lint HTML') {
+          stage('Lint HTML') {
              steps {
                  sh '''
                      echo "Running LInt"
