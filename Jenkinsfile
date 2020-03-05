@@ -3,19 +3,12 @@ pipeline {
      stages {
          stage('Build') {
              steps {
-                bat 'echo "Hello World"'
-                 bat '''
+                sh 'echo "Hello World"'
+                 sh '''
                      echo "Multiline shell steps works too"
+                     ls -lah
                  '''
              }
-         }
-          stage('Upload to AWS') {
-              steps {
-                  withAWS(region:'us-east-1',credentials:'selmensh_p') {
-                  bat 'echo "Uploading content with AWS creds"'
-                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'selmensh')
-                  }
-              }
          }
      }
 }
