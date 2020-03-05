@@ -9,6 +9,7 @@ pipeline {
                      ls -lah
                  '''
              }
+         }
           stage('Lint HTML') {
              steps {
                  sh '''
